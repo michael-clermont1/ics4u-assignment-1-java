@@ -1,6 +1,6 @@
 /*
  *
- * The program calculates the amount of logs
+ * The program plays a rock paper scissors game
  *
  * @author:  Michael Clermontl
  * @version: 1.0
@@ -15,9 +15,22 @@ import java.util.Scanner;
 */
 public final class Index {
     /**
+     * Constant Variable Rock.
+     */
+    static final String ROCK = "rock";
+    /**
+     * Constant Variable Paper.
+     */
+    static final String PAPER = "paper";
+    /**
+     * Constant Variable Scissors.
+     */
+    static final String SCISSORS = "scissors";
+    /**
      * The utility class lint exception rule.
      *
     */
+
     private Index() {
         // nothing called
     }
@@ -26,6 +39,7 @@ public final class Index {
     *
     * @param args No args will be used.
     */
+
     public static void main(final String[] args) {
 
         final Scanner sc = new Scanner(System.in);
@@ -36,45 +50,49 @@ public final class Index {
         final int random = rand.nextInt(2);
         String computerInput = "";
         if (random == 0) {
-            computerInput = "scissors";
+            computerInput = SCISSORS;
         } else if (random == 1) {
-            computerInput = "rock";
+            computerInput = ROCK;
         } else if (random == 2) {
-            computerInput = "paper";
+            computerInput = PAPER;
         }
         System.out.println("The computer guessed " + computerInput);
+        final String tie = "You tied with the computer!";
+        final String won = "You won against the computer!";
+        final String lost = "You lost against the computer!";
+        final String invalid = "Invalid Input.";
         switch (computerInput) {
-            case "rock":
-                if ("rock".equals(userInput)) {
-                    System.out.println("You tied with the computer!");
-                } else if ("paper".equals(userInput)) {
-                    System.out.println("You won against the computer!");
-                } else if ("scissors".equals(userInput)) {
-                    System.out.println("You lost against the computer!");
+            case ROCK:
+                if (ROCK.equals(userInput)) {
+                    System.out.println(tie);
+                } else if (PAPER.equals(userInput)) {
+                    System.out.println(won);
+                } else if (SCISSORS.equals(userInput)) {
+                    System.out.println(lost);
                 } else {
-                    System.out.println("Invalid input.");
+                    System.out.println(invalid);
                 }
                 break;
-            case "paper":
-                if ("rock".equals(userInput)) {
-                    System.out.println("You lost against the computer!");
-                } else if ("paper".equals(userInput)) {
-                    System.out.println("You tied with the computer!");
-                } else if ("scissors".equals(userInput)) {
-                    System.out.println("You won against the computer!");
+            case PAPER:
+                if (ROCK.equals(userInput)) {
+                    System.out.println(lost);
+                } else if (PAPER.equals(userInput)) {
+                    System.out.println(tie);
+                } else if (SCISSORS.equals(userInput)) {
+                    System.out.println(won);
                 } else {
-                    System.out.println("Invalid input.");
+                    System.out.println(invalid);
                 }
                 break;
-            case "scissors":
-                if ("rock".equals(userInput)) {
-                    System.out.println("You won against the computer!");
-                } else if ("paper".equals(userInput)) {
-                    System.out.println("You lost against the computer!");
-                } else if ("scissors".equals(userInput)) {
-                    System.out.println("You tied with the computer!");
+            case SCISSORS:
+                if (ROCK.equals(userInput)) {
+                    System.out.println(won);
+                } else if (PAPER.equals(userInput)) {
+                    System.out.println(lost);
+                } else if (SCISSORS.equals(userInput)) {
+                    System.out.println(tie);
                 } else {
-                    System.out.println("Invalid input.");
+                    System.out.println(invalid);
                 }
                 break;
             default:
